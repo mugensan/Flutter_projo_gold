@@ -19,18 +19,20 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
 
+
       ),
-      initialRoute: '/',
-      routes: {
-        '/': (context) => DashboardPage(),
-        '/DashboardPage': (context) => DashboardPage(),
-        '/PortfolioPage': (context) => PortfolioPage(),
-        '/CryptoPage': (context) => CryptoPage(),
-        '/StocksPage': (context) => StocksPage(),
-        '/SettingsPage': (context) => SettingsPage(),
-        '/ReportPage': (context) => ReportPage(),
-        '/AboutMePage': (context) => AboutMePage(),
-      },
+home: CryptoPage(),
+//      initialRoute: '/',
+//      routes: {
+//        '/': (context) => DashboardPage(),
+//        '/DashboardPage': (context) => DashboardPage(),
+//        '/PortfolioPage': (context) => PortfolioPage(),
+//        '/CryptoPage': (context) => CryptoPage(),
+//        '/StocksPage': (context) => StocksPage(),
+//        '/SettingsPage': (context) => SettingsPage(),
+//        '/ReportPage': (context) => ReportPage(),
+//        '/AboutMePage': (context) => AboutMePage(),
+//      },
     );
   }
 }

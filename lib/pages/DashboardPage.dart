@@ -2,7 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
-
+import 'CryptoPage.dart';
 
 class DashboardPage extends StatelessWidget {
   @override
@@ -17,6 +17,10 @@ class DashboardPage extends StatelessWidget {
               : 0.0,
         ),
 //body: Drawer(),
+
+      /**
+       * ##################################################################
+       */
 
         ///creating the drawer for the homepage/dashboard
         drawer: new Drawer(
@@ -49,7 +53,7 @@ class DashboardPage extends StatelessWidget {
                 trailing: new Icon(Icons.arrow_forward),
                 onTap: () {
                   Navigator.of(context).pop();
-                  Navigator.of(context).pushNamed("/CryptoPage");
+                  Navigator.of(context).pushReplacementNamed("/CryptoPage");
                 },
               ),
               new Divider(),
@@ -58,7 +62,7 @@ class DashboardPage extends StatelessWidget {
                 trailing: new Icon(Icons.arrow_forward),
                 onTap: () {
                   Navigator.of(context).pop();
-                  Navigator.of(context).pushNamed("/StocksPage");
+                  Navigator.of(context).pushReplacementNamed("/StocksPage");
                 },
               ),
               new Divider(),
@@ -67,7 +71,7 @@ class DashboardPage extends StatelessWidget {
                 trailing: new Icon(Icons.arrow_forward),
                 onTap: () {
                   Navigator.of(context).pop();
-                  Navigator.of(context).pushNamed("/PortfolioPage");
+                  Navigator.of(context).pushReplacementNamed("/PortfolioPage");
                 },
 
                 ///TODO ADD ROUTE
@@ -78,7 +82,7 @@ class DashboardPage extends StatelessWidget {
                 trailing: new Icon(Icons.arrow_forward),
                 onTap: () {
                   Navigator.of(context).pop();
-                  Navigator.of(context).pushNamed("/AboutMePage");
+                  Navigator.of(context).pushReplacementNamed("/AboutMePage");
                 },
               ),
               new Divider(),
@@ -87,7 +91,7 @@ class DashboardPage extends StatelessWidget {
                 trailing: new Icon(Icons.arrow_forward),
                 onTap: () {
                   Navigator.of(context).pop();
-                  Navigator.of(context).pushNamed("/ReportPage");
+                  Navigator.of(context).pushReplacementNamed("/ReportPage");
                 },
 
                 ///TODO ADD ROUTE
@@ -102,7 +106,9 @@ class DashboardPage extends StatelessWidget {
           ),
         ),
 
-
+      /**
+       * ##################################################################
+       */
         body: Center(
           child: new Padding(
               padding: const EdgeInsets.only(top: 12.0),
