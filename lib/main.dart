@@ -23,7 +23,7 @@ class MyApp extends StatelessWidget {
       initialRoute: '/',
       routes: {
         '/': (context) => DashboardPage(),
-//        '/DashboardPage': (context) => DashboardPage(),
+        '/DashboardPage': (context) => DashboardPage(),
         '/PortfolioPage': (context) => PortfolioPage(),
         '/CryptoPage': (context) => CryptoPage(),
         '/StocksPage': (context) => StocksPage(),

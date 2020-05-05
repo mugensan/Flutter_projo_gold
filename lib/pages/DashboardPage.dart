@@ -15,8 +15,7 @@ class DashboardPage extends StatelessWidget {
           elevation: debugDefaultTargetPlatformOverride == TargetPlatform.android
               ? 5.0
               : 0.0,
-
-    ),
+        ),
 //body: Drawer(),
 
         ///creating the drawer for the homepage/dashboard
@@ -43,6 +42,7 @@ class DashboardPage extends StatelessWidget {
                   ),
                 ],
               ),
+
               new Divider(),
               new ListTile(
                 title: new Text("Crypto"),
@@ -112,11 +112,9 @@ class DashboardPage extends StatelessWidget {
                 staggeredTiles: _staggeredTiles,
                 children: _tiles,
                 mainAxisSpacing: 10.0,
-//              crossAxisSpacing: 4.0,
                 padding:EdgeInsets.symmetric(horizontal: 16.0, vertical: 16.0),
               )),
         ),
-
     );
   }
 }
@@ -127,12 +125,6 @@ class _DashboardTile extends StatelessWidget {
   final Color backgroundColor;
   final IconData iconData;
   final String header;
-//  final PageRoute portfolioPage;
-//  final PageRoute cryptoPage;
-//  final PageRoute stocksPage;
-//  final PageRoute settingsPage;
-//  final PageRoute reportPage;
-//  final PageRoute aboutMePage;
 
   @override
   Widget build(BuildContext context) {
@@ -180,17 +172,7 @@ List<StaggeredTile> _staggeredTiles = const <StaggeredTile>[
   const StaggeredTile.extent(1, 150.0),
   const StaggeredTile.extent(1, 150.0),
   const StaggeredTile.extent(1, 150.0),
-  const StaggeredTile.extent(2, 230.0),
-//  const StaggeredTile.extent(2, 2),
-//  const StaggeredTile.count(2, 1),
-//  const StaggeredTile.count(1, 3),
-//  const StaggeredTile.count(1, 1),
-//  const StaggeredTile.count(2, 2),
-//  const StaggeredTile.count(1, 2),
-//  const StaggeredTile.count(1, 1),
-//  const StaggeredTile.count(3, 1),
-//  const StaggeredTile.count(1, 1),
-//  const StaggeredTile.count(4, 1),
+  const StaggeredTile.extent(2, 210.0),
 ];
 
 List<Widget> _tiles = const <Widget>[
@@ -200,8 +182,4 @@ List<Widget> _tiles = const <Widget>[
   const _DashboardTile(Color(0xfff4c83f),"Settings", Icons.settings),
   const _DashboardTile(Color(0xff7297ff),"About Me", Icons.book),
   const _DashboardTile(Color(0xff622F74),"Report", Icons.menu),
-//  const _DashboardTile(Colors.red, Icons.bluetooth),
-//  const _DashboardTile(Colors.pink, Icons.battery_alert),
-//  const _DashboardTile(Colors.purple, Icons.desktop_windows),
-//  const _DashboardTile(Colors.blue, Icons.radio),
 ];
