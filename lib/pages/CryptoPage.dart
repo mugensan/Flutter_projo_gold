@@ -16,6 +16,7 @@ class _CryptoPageState extends State<CryptoPage> {
   final String url ="https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest?start=1&&CMC_PRO_API_KEY=da830478-cb3a-4e1b-828b-63432e3a5319";
 
   List crypto_data;
+//  List crypto_price;
 
 
   @override
@@ -39,6 +40,7 @@ class _CryptoPageState extends State<CryptoPage> {
     setState(() {
       var convertDataToJson = json.decode(response.body);
       crypto_data = convertDataToJson['data'];
+//      crypto_price = convertDataToJson['quote'];
       ///need to extract data
     });
 
@@ -74,14 +76,39 @@ class _CryptoPageState extends State<CryptoPage> {
                         height: 64.0,
                       ),
                     ]),
-                            Container(
-                              child: new Text(crypto_data[index]['name']),
-                              padding: const EdgeInsets.all(20.0),
+                            Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: <Widget>[
+                                Container(
+                                  child: new Text(crypto_data[index]['name']),
+//                                  padding: const EdgeInsets.only(right: 5.0,bottom: 5.0,left: 50.0,top: 5.0),
+                                padding: const EdgeInsets.symmetric(vertical: 5.0,horizontal: 20.0),
+                                ),
+                                Container(
+                                  child: new Text(crypto_data[index]['symbol']),
+                                  padding: const EdgeInsets.symmetric(vertical: 5.0,horizontal: 20.0),
+                                ),
+                              ],
                             ),
-                            Container(
-                              child: new Text(crypto_data[index]['symbol']),
-                              padding: const EdgeInsets.all(20.0),
-                            )
+                        Expanded(
+                          child: Container(
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.end,
+                              children: <Widget>[
+                                Container(
+                                  padding: const EdgeInsets.all(8.0),
+                                  child: Text(r'$' + crypto_data[index]['quote']['USD']['price'].toString()),
+                                ),
+                                Container(
+                                  padding: const EdgeInsets.symmetric(vertical: 5.0,horizontal: 20.0),
+                                  child: Text(crypto_data[index]['quote']['USD']['percent_change_1h'].toString(),style: TextStyle(color:getColor(crypto_data[index]['quote']['USD']['percent_change_1h'].toString()),),
+
+                                )
+                                )],
+
+                            ),
+                          ),
+                        )
 
                           ],
                         ),
@@ -96,6 +123,18 @@ class _CryptoPageState extends State<CryptoPage> {
     );
   }
 }
+
+getColor(String percent_change_1h) {
+  if (percent_change_1h.contains('-')) {
+    return hexToColor('#FF000');
+  } else {
+    return hexToColor('#32CD32');
+  }
+}
+  hexToColor(String color){
+    return new Color(int.parse(color.substring(1,),radix: 16) + 0xFF000000);
+  }
+
 //
 //}
 //}
