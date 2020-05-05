@@ -195,11 +195,11 @@ List<StaggeredTile> _staggeredTiles = const <StaggeredTile>[
 
 List<Widget> _tiles = const <Widget>[
   const _DashboardTile(Color(0xffed622b),"Portfolio", Icons.account_balance),
-  const _DashboardTile(Color(0xff26cb3c),"Portfolio", Icons.attach_money),
-  const _DashboardTile(Color(0xffff3266),"Portfolio", Icons.insert_chart),
-  const _DashboardTile(Color(0xfff4c83f),"Portfolio", Icons.settings),
-  const _DashboardTile(Color(0xff7297ff),"Portfolio", Icons.book),
-  const _DashboardTile(Color(0xff622F74),"Portfolio", Icons.menu),
+  const _DashboardTile(Color(0xff26cb3c),"Crypto", Icons.attach_money),
+  const _DashboardTile(Color(0xffff3266),"Stocks", Icons.insert_chart),
+  const _DashboardTile(Color(0xfff4c83f),"Settings", Icons.settings),
+  const _DashboardTile(Color(0xff7297ff),"About Me", Icons.book),
+  const _DashboardTile(Color(0xff622F74),"Report", Icons.menu),
 //  const _DashboardTile(Colors.red, Icons.bluetooth),
 //  const _DashboardTile(Colors.pink, Icons.battery_alert),
 //  const _DashboardTile(Colors.purple, Icons.desktop_windows),
