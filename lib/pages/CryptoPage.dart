@@ -50,11 +50,13 @@ class _CryptoPageState extends State<CryptoPage> {
 
   @override
   Widget build(BuildContext context) {
+
     return new Scaffold(
       appBar: new AppBar(
         title: new Text("LiveCrypto"),
       ),
       body: new ListView.builder(
+
         itemCount: crypto_data == null ? 0 : crypto_data.length,
         itemBuilder: (BuildContext context, int index) {
           return new Container(
@@ -100,8 +102,9 @@ class _CryptoPageState extends State<CryptoPage> {
                                   child: Text(r'$' + crypto_data[index]['quote']['USD']['price'].toString()),
                                 ),
                                 Container(
+
                                   padding: const EdgeInsets.symmetric(vertical: 5.0,horizontal: 20.0),
-                                  child: Text(crypto_data[index]['quote']['USD']['percent_change_1h'].toString(),style: TextStyle(color:getColor(crypto_data[index]['quote']['USD']['percent_change_1h'].toString()),),
+                                  child: Text(crypto_data[index]['quote']['USD']['percent_change_1h'].toString()+r'%',style: TextStyle(color:getColor(crypto_data[index]['quote']['USD']['percent_change_1h'].toString()),),
 
                                 )
                                 )],
@@ -122,10 +125,11 @@ class _CryptoPageState extends State<CryptoPage> {
       ),
     );
   }
-}
+//}
 
 getColor(String percent_change_1h) {
-  if (percent_change_1h.contains('-')) {
+
+  if (crypto_data.toString().contains('-')) {
     return hexToColor('#FF000');
   } else {
     return hexToColor('#32CD32');
@@ -133,6 +137,7 @@ getColor(String percent_change_1h) {
 }
   hexToColor(String color){
     return new Color(int.parse(color.substring(1,),radix: 16) + 0xFF000000);
+  }
   }
 
 //
