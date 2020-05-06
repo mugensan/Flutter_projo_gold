@@ -128,7 +128,7 @@ class DashboardPage extends StatelessWidget {
 class _DashboardTile extends StatelessWidget {
   const _DashboardTile(this.backgroundColor,this.header, this.iconData);
 
-  final Color backgroundColor;
+  final Color backgroundColor;// = Color.alphaBlend(Colors.green, Colors.red);
   final IconData iconData;
   final String header;
 
@@ -138,6 +138,7 @@ class _DashboardTile extends StatelessWidget {
       elevation: 14.0,
       borderRadius: BorderRadius.circular(24.0),
       color: backgroundColor,
+
       child: new InkWell(
         onTap: () {
           Navigator.pushReplacementNamed(context, "/PortfolioPage");

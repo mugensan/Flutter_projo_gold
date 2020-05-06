@@ -16,6 +16,7 @@ class _CryptoPageState extends State<CryptoPage> {
   final String url ="https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest?start=1&&CMC_PRO_API_KEY=da830478-cb3a-4e1b-828b-63432e3a5319";
 
   List crypto_data;
+
 //  List crypto_price;
 
 
@@ -26,6 +27,7 @@ class _CryptoPageState extends State<CryptoPage> {
   }
 
   Future<String> getJsonData() async{
+
     var response = await http.get(
       ///encoding url
         Uri.encodeFull(url),
@@ -53,8 +55,99 @@ class _CryptoPageState extends State<CryptoPage> {
 
     return new Scaffold(
       appBar: new AppBar(
-        title: new Text("LiveCrypto"),
+        title: new Text("Crypto"),
+        centerTitle: true,
       ),
+      drawer: new Drawer(
+        child: new ListView(
+          children: <Widget>[
+            new UserAccountsDrawerHeader(
+              accountName: new Text("Kevin Roditi"),
+              accountEmail: new Text("kevin@gmail.com"),
+              currentAccountPicture: ClipOval(
+                child: Image.asset(
+                  "assets/mugenThinker.png",
+                  fit: BoxFit.contain,
+                ),
+              ),
+              otherAccountsPictures: <Widget>[
+                new ClipOval(
+                  child: Image.asset(
+                    "assets/mugenThinker.png",
+                    fit: BoxFit.contain,
+//                child: new Text("K"),
+                  ),
+                ),
+              ],
+            ),
+            new Divider(),
+            new ListTile(
+              title: new Text("Dashboard"),
+              trailing: new Icon(Icons.arrow_forward),
+              onTap: () {
+                Navigator.of(context).pop();
+                Navigator.of(context).pushNamed("/DashboardPage");
+              },
+            ),
+            new Divider(),
+            new ListTile(
+              title: new Text("Crypto"),
+              trailing: new Icon(Icons.arrow_forward),
+              onTap: () {
+                Navigator.of(context).pop();
+                Navigator.of(context).pushNamed("/CryptoPage");
+              },
+            ),
+            new Divider(),
+            new ListTile(
+              title: new Text("Stock"),
+              trailing: new Icon(Icons.arrow_forward),
+              onTap: () {
+                Navigator.of(context).pop();
+                Navigator.of(context).pushNamed("/StocksPage");
+              },
+            ),
+            new Divider(),
+            new ListTile(
+              title: new Text("Portfolio"),
+              trailing: new Icon(Icons.arrow_forward),
+              onTap: () {
+                Navigator.of(context).pop();
+                Navigator.of(context).pushNamed("/PortfolioPage");
+              },
+
+              ///TODO ADD ROUTE
+            ),
+            new Divider(),
+            new ListTile(
+              title: new Text("About me"),
+              trailing: new Icon(Icons.arrow_forward),
+              onTap: () {
+                Navigator.of(context).pop();
+                Navigator.of(context).pushNamed("/AboutMePage");
+              },
+            ),
+            new Divider(),
+            new ListTile(
+              title: new Text("Report"),
+              trailing: new Icon(Icons.arrow_forward),
+              onTap: () {
+                Navigator.of(context).pop();
+                Navigator.of(context).pushNamed("/ReportPage");
+              },
+
+              ///TODO ADD ROUTE
+            ),
+            new Divider(),
+            new ListTile(
+              title: new Text("Close Menu"),
+              trailing: new Icon(Icons.close),
+              onTap: () => Navigator.of(context).pop(),
+            )
+          ],
+        ),
+      ),
+
       body: new ListView.builder(
 
         itemCount: crypto_data == null ? 0 : crypto_data.length,
@@ -103,8 +196,8 @@ class _CryptoPageState extends State<CryptoPage> {
                                 ),
                                 Container(
 
-                                  padding: const EdgeInsets.symmetric(vertical: 5.0,horizontal: 20.0),
-                                  child: Text(crypto_data[index]['quote']['USD']['percent_change_1h'].toString()+r'%',style: TextStyle(color:getColor(crypto_data[index]['quote']['USD']['percent_change_1h'].toString()),),
+                                  padding: const EdgeInsets.all(8.0),
+                                  child: Text(crypto_data[index]['quote']['USD']['percent_change_1h'].toString()+r' %',style: TextStyle(color:getColor(crypto_data[index]['quote']['USD']['percent_change_1h'].toString()),),
 
                                 )
                                 )],
@@ -127,9 +220,9 @@ class _CryptoPageState extends State<CryptoPage> {
   }
 //}
 
-getColor(String percent_change_1h) {
-
-  if (crypto_data.toString().contains('-')) {
+getColor(String percent) {
+//    TODO fix bug -> turn neg double in color red
+  if (percent.contains("-")) {
     return hexToColor('#FF000');
   } else {
     return hexToColor('#32CD32');
