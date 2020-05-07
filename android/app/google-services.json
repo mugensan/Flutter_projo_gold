@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "889659444044",
+    "firebase_url": "https://flutter-gold-app-final.firebaseio.com",
+    "project_id": "flutter-gold-app-final",
+    "storage_bucket": "flutter-gold-app-final.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:889659444044:android:c6a15b31a78c70889e5de9",
+        "android_client_info": {
+          "package_name": "com.example.flutterstaggeredgridontap"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "889659444044-pimv5c29brtsas5r5bk76b1n4tkcvk42.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.flutterstaggeredgridontap",
+            "certificate_hash": "8285290d542f51cd4225cff07319ed54535d60eb"
+          }
+        },
+        {
+          "client_id": "889659444044-8funs82jjnmuu3262kg8gngvo7flk1uf.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDqZcswg9c58C8gQpaGc44K8gx7ECn-evQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "889659444044-8funs82jjnmuu3262kg8gngvo7flk1uf.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
