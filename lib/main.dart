@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutterstaggeredgridontap/injection.dart';
 import 'package:flutterstaggeredgridontap/pages/AboutMePage.dart';
 import 'package:flutterstaggeredgridontap/pages/CryptoPage.dart';
 import 'package:flutterstaggeredgridontap/pages/DashboardPage.dart';
@@ -6,8 +7,13 @@ import 'package:flutterstaggeredgridontap/pages/PortfolioPage.dart';
 import 'package:flutterstaggeredgridontap/pages/ReportPage.dart';
 import 'package:flutterstaggeredgridontap/pages/SettingsPage.dart';
 import 'package:flutterstaggeredgridontap/pages/StocksPage.dart';
+import 'package:injectable/injectable.dart';
 
-void main() => runApp(MyApp());
+void main() {
+  configureInjection(Environment.prod);
+      runApp(MyApp());
+}
+
 
 class MyApp extends StatelessWidget {
   // This widget is the root of your application.
