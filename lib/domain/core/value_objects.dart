@@ -9,6 +9,8 @@ abstract class ValueObject<T> {
 
   Either<ValueFailure<T>, T> get value;
 
+  bool isValid() => value.isRight();
+
   //CHECKING IF VALUES ARE EQUAL
   @override
   bool operator ==(Object object) {
