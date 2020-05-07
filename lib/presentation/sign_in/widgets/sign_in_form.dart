@@ -7,8 +7,10 @@ class SignInForm extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocConsumer<SignInFormBloc, SignInFormState>(
       listener: (context, state) {
-        state.authFailureOrSuccessOption.fold((){},
-                (either)=>either.fold((failure){
+        state.authFailureOrSuccessOption.fold(
+              (){},
+                (either)=>either.fold(
+                      (failure){
                   //SNACKBAR
                 },
                     (_){
