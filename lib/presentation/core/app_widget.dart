@@ -8,6 +8,9 @@ import 'package:flutterstaggeredgridontap/pages/ReportPage.dart';
 import 'package:flutterstaggeredgridontap/pages/SettingsPage.dart';
 import 'package:flutterstaggeredgridontap/pages/StocksPage.dart';
 import 'package:flutterstaggeredgridontap/presentation/sign_in/sign_in_page.dart';
+import 'package:flutterstaggeredgridontap/routing/router.dart'as router;
+import 'package:flutterstaggeredgridontap/routing/routing_constants.dart';
+
 
 class AppWidget extends StatelessWidget {
   // This widget is the root of your application.
@@ -24,12 +27,15 @@ class AppWidget extends StatelessWidget {
             borderRadius: BorderRadius.circular(8),
           )
         )
+
       ),
-//home: CryptoPage(),
-      initialRoute: '/',
+      onGenerateRoute:router.generateRoute,
+      initialRoute: DashboardPage,
+
+
       routes: {
-        '/': (BuildContext context) => new DashboardPage(),
-        '/DashboardPage': (context) => new DashboardPage(),
+//        '/': (BuildContext context) => new DashboardPage(),
+//        '/DashboardPage': (context) => new DashboardPage(),
         '/PortfolioPage': (BuildContext context) => new PortfolioPage(),
         '/CryptoPage': (BuildContext context) => new CryptoPage(),
         '/StocksPage': (BuildContext context) => new StocksPage(),
