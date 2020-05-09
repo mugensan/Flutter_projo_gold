@@ -28,14 +28,14 @@ class AppWidget extends StatelessWidget {
 //home: CryptoPage(),
       initialRoute: '/',
       routes: {
-        '/': (context) => SignInPage(),
-        '/DashboardPage': (context) => DashboardPage(),
-        '/PortfolioPage': (context) => PortfolioPage(),
-        '/CryptoPage': (context) => CryptoPage(),
-        '/StocksPage': (context) => StocksPage(),
-        '/SettingsPage': (context) => SettingsPage(),
-        '/ReportPage': (context) => ReportPage(),
-        '/AboutMePage': (context) => AboutMePage(),
+        '/': (BuildContext context) => new DashboardPage(),
+        '/DashboardPage': (context) => new DashboardPage(),
+        '/PortfolioPage': (BuildContext context) => new PortfolioPage(),
+        '/CryptoPage': (BuildContext context) => new CryptoPage(),
+        '/StocksPage': (BuildContext context) => new StocksPage(),
+        '/SettingsPage': (BuildContext context) => new SettingsPage(),
+        '/ReportPage': (BuildContext context) => new ReportPage(),
+        '/AboutMePage': (BuildContext context) => new AboutMePage(),
       },
     );
   }
