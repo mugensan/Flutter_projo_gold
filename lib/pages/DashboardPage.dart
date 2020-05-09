@@ -2,8 +2,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
-import 'package:flutterstaggeredgridontap/pages/PortfolioPage.dart';
-import 'CryptoPage.dart';
 
 class DashboardPage extends StatelessWidget {
   @override
@@ -20,7 +18,6 @@ class DashboardPage extends StatelessWidget {
       ),
 //body: Drawer(),
 
-
       /**
        * ##################################################################
        */
@@ -29,7 +26,6 @@ class DashboardPage extends StatelessWidget {
       drawer: new Drawer(
         child: new ListView(
           children: <Widget>[
-
             new UserAccountsDrawerHeader(
               accountName: new Text("Kevin Roditi"),
               accountEmail: new Text("kevin@gmail.com"),
@@ -49,7 +45,6 @@ class DashboardPage extends StatelessWidget {
                 ),
               ],
             ),
-
             new Divider(),
             new ListTile(
               title: new Text("Crypto"),
@@ -70,7 +65,6 @@ class DashboardPage extends StatelessWidget {
             ),
             new Divider(),
             new ListTile(
-
               title: new Text("Portfolio"),
               trailing: new Icon(Icons.arrow_forward),
               onTap: () {
@@ -142,164 +136,46 @@ class _DashboardTile extends StatelessWidget {
       elevation: 14.0,
       borderRadius: BorderRadius.circular(24.0),
       color: backgroundColor,
-
       child: new InkWell(
         onTap: () {
           Navigator.of(context).pushNamed("/PortfolioPage");
+          Navigator.pop(context, true);
+          Navigator.pushReplacementNamed(context, "/PortfolioPage");
+          Navigator.pushNamed(context, "/CryptoPage");
+          Navigator.pushReplacementNamed(context, "/StocksPage");
+          Navigator.pushReplacementNamed(context, "/SettingsPage");
+          Navigator.pushReplacementNamed(context, "/ReportPage");
+
+//          Navigator.pop(context,true);
+
+          Navigator.pushReplacementNamed(context, "/CryptoPage");
         },
+        child: new Center(
+          child: new Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                new Icon(
+                  iconData,
+                  color: Colors.white,
+                  size: 30.0,
+                ),
+                Text(
+                  header,
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 20.0,
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ),
       ),
     );
-//          Navigator.pop(context,true);
-
-
-//
-//          Navigator.pop(context,true);
-//          Navigator.pushReplacementNamed(context, "/PortfolioPage");
-//          Navigator.pushNamed(context, "/CryptoPage");
-//          Navigator.pushReplacementNamed(context, "/StocksPage");
-//          Navigator.pushReplacementNamed(context, "/SettingsPage");
-//          Navigator.pushReplacementNamed(context, "/ReportPage");
-//          Navigator.pushReplacementNamed(context, "/CryptoPage");
   }
-
-  ,
-
-  child
-
-      :
-
-  new
-
-  Center
-
-  (
-
-  child
-
-      :
-
-  new
-
-  Padding
-
-  (
-
-  padding
-
-      :
-
-  const EdgeInsets.all
-
-  (
-
-  8.0
-
-  )
-
-  ,
-
-  child
-
-      :
-
-  Column
-
-  (
-
-  mainAxisAlignment
-
-      :
-
-  MainAxisAlignment.center
-
-  ,
-
-  children
-
-      :
-
-  <
-
-  Widget
-
-  >
-
-  [
-
-  new
-
-  Icon
-
-  (
-
-  iconData
-
-  ,
-
-  color
-
-      :
-
-  Colors.white
-
-  ,
-
-  size
-
-      :
-
-  30.0
-
-  ,
-
-  )
-
-  ,
-
-  Text
-
-  (
-
-  header
-
-  ,
-
-  style
-
-      :
-
-  TextStyle
-
-  (
-
-  color
-
-      :
-
-  Colors.white
-
-  ,
-
-  fontSize
-
-      : 20.0,
-  ),),
-  ],
-  ),
-  )
-
-  ,
-
-  )
-
-  ,
-
-  )
-
-  ,
-
-  );
-}}
+}
 
 List<StaggeredTile> _staggeredTiles = const <StaggeredTile>[
   const StaggeredTile.extent(2, 130.0),
