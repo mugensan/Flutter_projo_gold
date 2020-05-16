@@ -1,5 +1,6 @@
 import 'package:dartz/dartz.dart';
 import 'package:flutter/foundation.dart';
+import 'package:flutterstaggeredgridontap/domain/auth/user.dart';
 import 'package:flutterstaggeredgridontap/domain/auth/value_objects.dart';
 import 'package:flutterstaggeredgridontap/domain/auth/auth_failure.dart';
 
@@ -7,6 +8,8 @@ import 'package:flutterstaggeredgridontap/domain/auth/auth_failure.dart';
 ///also 1 class for google and firebase auth
 
 abstract class IAuthFacade{
+
+  Future<Option<User>> getSignedInUser();
 
   //REGISTER
 Future<Either<AuthFailure,Unit>>registerWithEmailAndPassword({
@@ -25,4 +28,5 @@ Future<Either<AuthFailure,Unit>>signInWithEmailAndPassword({
 
 //GOOGLE SIGN IN
 Future<Either<AuthFailure,Unit>>signInWithGoogle();
+Future<void>signOut();
 }

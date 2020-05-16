@@ -4,11 +4,13 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
 import 'package:flutterstaggeredgridontap/domain/auth/auth_failure.dart';
 import 'package:flutterstaggeredgridontap/domain/auth/i_auth_facade.dart';
+import 'package:flutterstaggeredgridontap/domain/auth/user.dart';
 import 'package:flutterstaggeredgridontap/domain/auth/value_objects.dart';
+import 'package:flutterstaggeredgridontap/domain/core/value_objects.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:injectable/injectable.dart';
-
+import './firebase_user_mapper.dart';
 
 @lazySingleton
 @RegisterAs(IAuthFacade)
@@ -17,9 +19,9 @@ class FirebaseAuthFacade implements IAuthFacade {
   final GoogleSignIn _googleSignIn;
 
   FirebaseAuthFacade(
-      this._firebaseAuth,
-      this._googleSignIn,
-      );
+    this._firebaseAuth,
+    this._googleSignIn,
+  );
 
   @override
   Future<Either<AuthFailure, Unit>> registerWithEmailAndPassword({
@@ -87,4 +89,18 @@ class FirebaseAuthFacade implements IAuthFacade {
       return left(const AuthFailure.serverError());
     }
   }
+
+  @override
+  Future<Option<User>> getSignedInUser() =>
+      _firebaseAuth.currentUser().then((fireBaseUser) =>
+
+          ///some(User(id: UniqueId.fromUniqueString(fireBaseUser.uid))));
+          optionOf(fireBaseUser?.toDomain()));
+
+  @override
+  Future<void> signOut()=>//async
+    Future.wait([ //list
+    _googleSignIn.signOut(),//await
+    _firebaseAuth.signOut(),//await
+    ]);
 }
