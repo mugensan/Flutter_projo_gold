@@ -3,12 +3,12 @@ import 'package:flutter/material.dart';
 import 'package:flutterstaggeredgridontap/pages/AboutMePage.dart';
 import 'package:flutterstaggeredgridontap/pages/CryptoPage.dart';
 import 'package:flutterstaggeredgridontap/pages/DashboardPage.dart';
-import 'package:flutterstaggeredgridontap/pages/PortfolioPage.dart';
+import 'file:///C:/Users/kevro/AndroidStudioProjects/Flutter_projo_gold/lib/pages/portfolio/PortfolioPage.dart';
 import 'package:flutterstaggeredgridontap/pages/ReportPage.dart';
 import 'package:flutterstaggeredgridontap/pages/SettingsPage.dart';
 import 'package:flutterstaggeredgridontap/pages/StocksPage.dart';
 import 'package:flutterstaggeredgridontap/presentation/sign_in/sign_in_page.dart';
-
+import 'package:flutterstaggeredgridontap/pages/splashscreen/animatedWidgetPage.dart';
 class AppWidget extends StatelessWidget {
   // This widget is the root of your application.
   @override
@@ -28,7 +28,7 @@ class AppWidget extends StatelessWidget {
 //home: CryptoPage(),
       initialRoute: '/',
       routes: {
-        '/': (BuildContext context) => new SignInPage(),
+        '/': (BuildContext context) => new DashboardPage(),
         '/DashboardPage': (context) => new DashboardPage(),
         '/PortfolioPage': (BuildContext context) => new PortfolioPage(),
         '/CryptoPage': (BuildContext context) => new CryptoPage(),
