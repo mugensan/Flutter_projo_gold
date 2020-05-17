@@ -150,89 +150,118 @@ class _StocksPageState extends State<StocksPage> {
           itemCount: data == null ? 0 : data.length,
           itemBuilder: (BuildContext context, int index) {
             return new Container(
-              child: new Center(
-                child: new Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: <Widget>[
-                    new Card(
-                      child: Row(
-                        children: <Widget>[
+              child: new Column(
+//                  crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: <Widget>[
+                  new Card(
+                    child: Row(
+                      children: <Widget>[
 
-                          Column(
-                            children: <Widget>[
-                              Container(
-                                padding: const EdgeInsets.only(
-                                    left: 8.0, bottom: 8.0),
+                        Column(
+                          children: <Widget>[
+                            Container(
+                              padding: const EdgeInsets.only(
+                                  left: 8.0, bottom: 8.0),
 
-                              ),
-                              Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: <Widget>[
-                                  Container(
-                                    child: new  Text(
-                                      data[index]['company'],
-                                      style: TextStyle(
-                                        fontSize: 14,
-                                        fontWeight: FontWeight.bold,
-                                        color: Colors.black,
-                                      ),
-                                    ),
-                                    padding: const EdgeInsets.symmetric(vertical: 5.0,horizontal: 20.0),
-
-                                  ),
-                                ],
-                              ),
-                              Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: <Widget>[
-                                  Container(
-                                    child: new Text(data[index]['symbol'],
-                                      style: TextStyle(
-                                        fontSize: 12,
-                                        fontWeight: FontWeight.w500,
-                                        color: Colors.grey,
-                                      ),
-                                    ),
-                                    padding: const EdgeInsets.symmetric(vertical: 5.0,horizontal: 20.0),
-                                  ),
-                                ],
-                              ),
-                            ],
-                          ),
-                          Expanded(
-                            child: Container(
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.end,
-                                children: <Widget>[
-                                  Container(
-                                    padding: const EdgeInsets.all(8.0),
-                                    child: new  Text("price  " + data[index]['price'],
-                                      style: TextStyle(
-                                        fontSize: 12,
-                                        fontWeight: FontWeight.w500,
-                                        color: Colors.black,
-                                      ),
-                                    ),
-                                  ),
-                                  Container(
-                                    padding: const EdgeInsets.all(8.0),
-                                    child: new Text("open  " + data[index]['open'],
-                                      style: TextStyle(
-                                        fontSize: 12,
-                                        fontWeight: FontWeight.w500,
-                                        color: Colors.black,
-                                      ),
-                                    ),
-                                  ),
-                                ],
-                              ),
                             ),
-                          )
-                        ],
-                      ),
-                    )
-                  ],
-                ),
+                            Column(
+//                                crossAxisAlignment: CrossAxisAlignment.stretch,
+                              children: <Widget>[
+                                Container(
+                                  child: new  Text(
+                                    data[index]['company'],
+                                    style: TextStyle(
+                                      fontSize: 10,
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.black,
+                                    ),
+                                  ),
+                                  padding: const EdgeInsets.symmetric(vertical: 0.0,horizontal: 8.0),
+
+                                ),
+                              ],
+                            ),
+                            Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: <Widget>[
+                                Container(
+                                  child: new Text(data[index]['symbol'],
+                                    style: TextStyle(
+                                      fontSize: 12,
+                                      fontWeight: FontWeight.w500,
+                                      color: Colors.grey,
+                                    ),
+                                  ),
+                                  padding: const EdgeInsets.symmetric(vertical: 5.0,horizontal: 20.0),
+                                ),
+                              ],
+                            ),
+                          ],
+                        ),
+                        Expanded(
+                          child: Container(
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.end,
+                              children: <Widget>[
+                                Container(
+                                  padding: const EdgeInsets.all(8.0),
+                                  child: new  Text("price  " + data[index]['price'],
+                                    style: TextStyle(
+                                      fontSize: 12,
+                                      fontWeight: FontWeight.w500,
+                                      color: Colors.black,
+                                    ),
+                                  ),
+                                ),
+                                Container(
+                                  padding: const EdgeInsets.all(8.0),
+                                  child: new Text("open  " + data[index]['open'],
+                                    style: TextStyle(
+                                      fontSize: 12,
+                                      fontWeight: FontWeight.w500,
+                                      color: Colors.black,
+                                    ),
+                                  ),
+                                ),
+                                Container(
+                                  padding: const EdgeInsets.all(8.0),
+                                  child: new Text("high  " + data[index]['high'],
+                                    style: TextStyle(
+                                      fontSize: 12,
+                                      fontWeight: FontWeight.w500,
+                                      color: Colors.black,
+                                    ),
+                                  ),
+                                ),
+                                Container(
+                                  padding: const EdgeInsets.all(8.0),
+                                  child: new Text("low  " + data[index]['low'],
+                                    style: TextStyle(
+                                      fontSize: 12,
+                                      fontWeight: FontWeight.w500,
+                                      color: Colors.black,
+                                    ),
+                                  ),
+                                ),
+                                Container(
+                                  padding: const EdgeInsets.all(8.0),
+                                  child: new Text("close  " + data[index]['close'],
+                                    style: TextStyle(
+                                      fontSize: 12,
+                                      fontWeight: FontWeight.w500,
+                                      color: Colors.black,
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        )
+                      ],
+                    ),
+                  )
+                ],
               ),
 //              child: new Column(
 //                crossAxisAlignment: CrossAxisAlignment.stretch,
