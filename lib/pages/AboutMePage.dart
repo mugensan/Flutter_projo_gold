@@ -1,5 +1,6 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:link/link.dart';
 
 class AboutMePage extends StatefulWidget {
@@ -203,7 +204,7 @@ class _AboutMePageState extends State<AboutMePage> {
 
                     child: ListTile(
                       leading: Icon(
-                        Icons.apps,
+                        FontAwesomeIcons.github,
                         size: 20.0,
                         color: Colors.teal.shade900,
                       ),

@@ -7,6 +7,8 @@ import 'file:///C:/Users/kevro/AndroidStudioProjects/Flutter_projo_gold/lib/page
 import 'package:flutterstaggeredgridontap/pages/ReportPage.dart';
 import 'package:flutterstaggeredgridontap/pages/SettingsPage.dart';
 import 'package:flutterstaggeredgridontap/pages/StocksPage.dart';
+import 'package:flutterstaggeredgridontap/pages/myCharts.dart';
+import 'package:flutterstaggeredgridontap/pages/portfolio/PortfolioPage.dart';
 import 'package:flutterstaggeredgridontap/presentation/sign_in/sign_in_page.dart';
 import 'package:flutterstaggeredgridontap/pages/splashscreen/animatedWidgetPage.dart';
 class AppWidget extends StatelessWidget {
@@ -28,9 +30,9 @@ class AppWidget extends StatelessWidget {
 //home: CryptoPage(),
       initialRoute: '/',
       routes: {
-        '/': (BuildContext context) => new DashboardPage(),
+        '/': (BuildContext context) => new MyCharts(),
         '/DashboardPage': (context) => new DashboardPage(),
-        '/PortfolioPage': (BuildContext context) => new PortfolioPage(),
+        '/PortfolioPage': (BuildContext context) => new MyCharts(),
         '/CryptoPage': (BuildContext context) => new CryptoPage(),
         '/StocksPage': (BuildContext context) => new StocksPage(),
         '/SettingsPage': (BuildContext context) => new SettingsPage(),
