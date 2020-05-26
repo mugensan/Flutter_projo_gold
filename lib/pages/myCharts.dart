@@ -128,6 +128,7 @@ class _MyChartsState extends State<MyCharts> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       home: DefaultTabController(
         length: 3,
         child: Scaffold(
@@ -342,112 +343,101 @@ class _MyChartsState extends State<MyCharts> {
                 ),
               ),
               Container(
-                child: Padding(
-                  padding: EdgeInsets.all(8.0),
-                  child: Container(
-                    child: Center(
-                      child: Column(
-                        children: <Widget>[
-                          Text(
-                            'Stocks Macd',
-                            style: TextStyle(
-                              fontSize: 24.0,
-                              fontWeight: FontWeight.bold,
+                child: Center(
+                  child: Column(
+                    children: <Widget>[
+
+                      CustomScrollView(
+                        slivers: <Widget>[
+//                          SliverAppBar(
+//                            title: Text("TEST"),
+//                            pinned: true,
+//                            expandedHeight: 210.0,
+//                            flexibleSpace: FlexibleSpaceBar(
+//                              background: MyFlexibleAppBar(),
+//                            ),
+//                          ),
+                          SliverList(
+                            delegate: SliverChildListDelegate(
+                              <Widget>[
+                                myCardDetails(
+                                    "assets/bitcoin.png",
+                                    "Bitcoin",
+                                    data1,
+                                    "4702",
+                                    "3.0",
+                                    "\u2191",
+                                    0xff07862b),
+                                myCardDetails(
+                                    "assets/bitshares.png",
+                                    "Bitshares",
+                                    data2,
+                                    "3802",
+                                    "4.0",
+                                    "\u2193",
+                                    0xffff0000),
+                                myCardDetails(
+                                    "assets/ethereum.png",
+                                    "Ethereum",
+                                    data3,
+                                    "7702",
+                                    "5.0",
+                                    "\u2191",
+                                    0xff07862b),
+                                myCardDetails(
+                                    "assets/counterparty.png",
+                                    "Counterpaty",
+                                    data7,
+                                    "4702",
+                                    "3.0",
+                                    "\u2193",
+                                    0xffff0000),
+                                myCardDetails(
+                                    "assets/lykke.png",
+                                    "Lykke",
+                                    data5,
+                                    "8600",
+                                    "2.0",
+                                    "\u2191",
+                                    0xff07862b),
+                                myCardDetails(
+                                    "assets/peercoin.png",
+                                    "Peercoin",
+                                    data6,
+                                    "4702",
+                                    "2.5",
+                                    "\u2191",
+                                    0xff07862b),
+                                myCardDetails(
+                                    "assets/zcash.png",
+                                    "Zcash",
+                                    data4,
+                                    "2345",
+                                    "2.0",
+                                    "\u2193",
+                                    0xffff0000),
+                                myCardDetails(
+                                    "assets/singular.png",
+                                    "Singular",
+                                    data8,
+                                    "3800",
+                                    "2.5",
+                                    "\u2191",
+                                    0xffff0000),
+                                myCardDetails(
+                                    "assets/litecoin.png",
+                                    "Litecoin",
+                                    data9,
+                                    "2000",
+                                    "3.0",
+                                    "\u2193",
+                                    0xffff0000),
+                              ],
                             ),
-                          ),
-                          CustomScrollView(
-                            slivers: <Widget>[
-//                              SliverAppBar(
-//                                title: MyAppBar(),
-//                                pinned: true,
-//                                expandedHeight: 210.0,
-//                                flexibleSpace: FlexibleSpaceBar(
-//                                  background: MyFlexibleAppBar(),
-//                                ),
-//                              ),
-                              SliverList(
-                                delegate: SliverChildListDelegate(
-                                  <Widget>[
-                                    myCardDetails(
-                                        "assets/bitcoin.png",
-                                        "Bitcoin",
-                                        data1,
-                                        "4702",
-                                        "3.0",
-                                        "\u2191",
-                                        0xff07862b),
-                                    myCardDetails(
-                                        "assets/bitshares.png",
-                                        "Bitshares",
-                                        data2,
-                                        "3802",
-                                        "4.0",
-                                        "\u2193",
-                                        0xffff0000),
-                                    myCardDetails(
-                                        "assets/ethereum.png",
-                                        "Ethereum",
-                                        data3,
-                                        "7702",
-                                        "5.0",
-                                        "\u2191",
-                                        0xff07862b),
-                                    myCardDetails(
-                                        "assets/counterparty.png",
-                                        "Counterpaty",
-                                        data7,
-                                        "4702",
-                                        "3.0",
-                                        "\u2193",
-                                        0xffff0000),
-                                    myCardDetails(
-                                        "assets/lykke.png",
-                                        "Lykke",
-                                        data5,
-                                        "8600",
-                                        "2.0",
-                                        "\u2191",
-                                        0xff07862b),
-                                    myCardDetails(
-                                        "assets/peercoin.png",
-                                        "Peercoin",
-                                        data6,
-                                        "4702",
-                                        "2.5",
-                                        "\u2191",
-                                        0xff07862b),
-                                    myCardDetails(
-                                        "assets/zcash.png",
-                                        "Zcash",
-                                        data4,
-                                        "2345",
-                                        "2.0",
-                                        "\u2193",
-                                        0xffff0000),
-                                    myCardDetails(
-                                        "assets/singular.png",
-                                        "Singular",
-                                        data8,
-                                        "3800",
-                                        "2.5",
-                                        "\u2191",
-                                        0xffff0000),
-                                    myCardDetails(
-                                        "assets/litecoin.png",
-                                        "Litecoin",
-                                        data9,
-                                        "2000",
-                                        "3.0",
-                                        "\u2193",
-                                        0xffff0000),
-                                  ],
-                                ),
-                              ),
-                            ],
                           ),
                         ],
                       ),
-                    ),
+                    ],
                   ),
                 ),
               ),
