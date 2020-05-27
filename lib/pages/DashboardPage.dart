@@ -2,6 +2,10 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
+import 'package:flutterstaggeredgridontap/pages/AboutMePage.dart';
+import 'package:flutterstaggeredgridontap/pages/ReportPage.dart';
+import 'package:flutterstaggeredgridontap/pages/myCharts.dart';
+import 'package:flutterstaggeredgridontap/pages/portfolio/PortfolioPage.dart';
 
 class DashboardPage extends StatelessWidget {
   @override
@@ -137,17 +141,25 @@ class _DashboardTile extends StatelessWidget {
       borderRadius: BorderRadius.circular(24.0),
       color: backgroundColor,
 
+
       child: new InkWell(
         onTap: () {
-          Navigator.of(context).pushNamed("/PortfolioPage");
-          Navigator.pop(context, true);
-          Navigator.pushReplacementNamed(context, "/PortfolioPage");
-          Navigator.pushNamed(context, "/CryptoPage");
-          Navigator.pushReplacementNamed(context, "/StocksPage");
-          Navigator.pushReplacementNamed(context, "/SettingsPage");
-          Navigator.pushReplacementNamed(context, "/ReportPage");
-          Navigator.pushReplacementNamed(context, "/CryptoPage");
-        },
+          Navigator.of(context).push(MaterialPageRoute(builder: (context)=>MyCharts()));
+//          Navigator.of(context).push(MaterialPageRoute(builder: (context)=>AboutMePage()));
+          },
+//          Navigator.push(context,"/PortfolioPage");
+//          Navigator.pop(context, true);
+//          Navigator.pushNamed(context, "/CryptoPage");
+//          Navigator.pop(context, true);
+//          Navigator.pushReplacementNamed(context, "/StocksPage");
+//          Navigator.pop(context, true);
+//          Navigator.pushReplacementNamed(context, "/SettingsPage");
+//          Navigator.pop(context, true);
+//          Navigator.pushReplacementNamed(context, "/ReportPage");
+//          Navigator.pop(context, true);
+//          Navigator.pushReplacementNamed(context, "/CryptoPage");
+//          Navigator.pop(context, true);
+
 
         child: new Center(
           child: new Padding(

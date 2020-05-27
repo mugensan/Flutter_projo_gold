@@ -223,9 +223,9 @@ class _CryptoPageState extends State<CryptoPage> {
 getColor(String percent) {
 //    TODO fix bug -> turn neg double in color red
   if (percent.contains("-")) {
-    return hexToColor('#FF000');
+    return Colors.red;
   } else {
-    return hexToColor('#32CD32');
+    return Colors.green;
   }
 }
   hexToColor(String color){
