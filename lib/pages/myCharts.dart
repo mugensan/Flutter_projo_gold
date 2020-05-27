@@ -395,28 +395,6 @@ class _MyChartsState extends State<MyCharts> {
   }
 }
 
-//                      CustomScrollView(
-//                        slivers: <Widget>[
-//                          SliverAppBar(
-//                            title: Text("TEST"),
-//                            pinned: true,
-//                            expandedHeight: 210.0,
-//                            flexibleSpace: FlexibleSpaceBar(
-//                              background: MyFlexibleAppBar(),
-//                            ),
-//                          ),
-//                          Card(
-//
-//                                myCardDetails(
-//                                    "assets/bitcoin.png",
-//                                    "Bitcoin",
-//                                    data1,
-//                                    "4702",
-//                                    "3.0",
-//                                    "\u2191",
-//                                    0xff07862b),
-//
-
 class Task {
   String task;
   double taskValue;
@@ -426,24 +404,10 @@ class Task {
 }
 
 class EarningsPerYear {
-//  String stockName;
-//  int yAxis;
-//  double price;
   double years;
-
-//  double high;
-//  double low;
   double earnings;
 
-  EarningsPerYear(
-    //      this.stockName,
-//      this.yAxis,
-//      this.price,
-    this.years,
-//      this.high,
-//      this.low,
-    this.earnings,
-  );
+  EarningsPerYear(this.years,this.earnings,);
 }
 
 Widget myCardDetails(

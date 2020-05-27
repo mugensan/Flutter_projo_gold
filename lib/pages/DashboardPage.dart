@@ -136,6 +136,7 @@ class _DashboardTile extends StatelessWidget {
       elevation: 14.0,
       borderRadius: BorderRadius.circular(24.0),
       color: backgroundColor,
+
       child: new InkWell(
         onTap: () {
           Navigator.of(context).pushNamed("/PortfolioPage");
@@ -145,11 +146,9 @@ class _DashboardTile extends StatelessWidget {
           Navigator.pushReplacementNamed(context, "/StocksPage");
           Navigator.pushReplacementNamed(context, "/SettingsPage");
           Navigator.pushReplacementNamed(context, "/ReportPage");
-
-//          Navigator.pop(context,true);
-
           Navigator.pushReplacementNamed(context, "/CryptoPage");
         },
+
         child: new Center(
           child: new Padding(
             padding: const EdgeInsets.all(8.0),
