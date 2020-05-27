@@ -32,7 +32,7 @@ class _MyChartsState extends State<MyCharts> {
   List<double> data9 = [1.0, 1.1, 1.0, 0.9, 1.2, 1.3, 1.0, 0.8, 1.3, 1.0];
 
   List<charts.Series<Task, String>> _seriesPieData;
-  List<charts.Series<Macd, double>> _seriesLineData;
+  List<charts.Series<EarningsPerYear, double>> _seriesLineData;
 
   _generateData() {
     var pieData = [
@@ -47,22 +47,15 @@ class _MyChartsState extends State<MyCharts> {
       new Task('LiteCoin', 10.0, Colors.lightBlueAccent),
     ];
 
-    var macdVersatis = [
-      new Macd(138.12, 197.79),
-      new Macd(197.79, 139.0),
-      new Macd(287.79, 397.79),
-      new Macd(397.79, 55.0),
-      new Macd(497.79, 597.79),
-      new Macd(597.79, 333.0),
+    var earningsPerYear = [
+      new EarningsPerYear(0, 0),
+      new EarningsPerYear(1, 197.79),
+      new EarningsPerYear(2, 139.0),
+      new EarningsPerYear(3, 397.79),
+      new EarningsPerYear(4, 155.0),
+      new EarningsPerYear(5, 597.79),
     ];
-//    var macdMac = [
-//      new Macd(118.12, 97.79),
-//      new Macd(227.79, 39.0),
-//      new Macd(337.79, 97.79),
-//      new Macd(447.79, 5.0),
-//      new Macd(557.79, 97.79),
-//      new Macd(667.79, 33.0),
-//];
+
 
     _seriesPieData.add(charts.Series(
       data: pieData,
@@ -77,9 +70,9 @@ class _MyChartsState extends State<MyCharts> {
       charts.Series(
           colorFn: (__, _) => charts.ColorUtil.fromDartColor(Colors.tealAccent),
           id: 'MACD Indicator',
-          data: macdVersatis,
-          domainFn: (Macd macd, _) => macd.open,
-          measureFn: (Macd macd, _) => macd.close),
+          data: earningsPerYear,
+          domainFn: (EarningsPerYear macd, _) => macd.years,
+          measureFn: (EarningsPerYear macd, _) => macd.earnings),
     );
 
 //    _seriesLineData.add(
@@ -97,7 +90,7 @@ class _MyChartsState extends State<MyCharts> {
     // TODO: implement initState
     super.initState();
     _seriesPieData = List<charts.Series<Task, String>>();
-    _seriesLineData = List<charts.Series<Macd, double>>();
+    _seriesLineData = List<charts.Series<EarningsPerYear, double>>();
     _generateData();
     this.getJsonData();
   }
@@ -134,7 +127,7 @@ class _MyChartsState extends State<MyCharts> {
         child: Scaffold(
           backgroundColor: Colors.blue[200],
           appBar: new AppBar(
-            title: new Text('Portfolio2'),
+            title: new Text('My Crypto Portfolio'),
             centerTitle: true,
 
             ///this target transition between android and IOS
@@ -308,7 +301,7 @@ class _MyChartsState extends State<MyCharts> {
                     child: Column(
                       children: <Widget>[
                         Text(
-                          'Stocks Macd',
+                          'Earnings of my portfolio',
                           style: TextStyle(
                             fontSize: 24.0,
                             fontWeight: FontWeight.bold,
@@ -324,12 +317,12 @@ class _MyChartsState extends State<MyCharts> {
                             animate: true,
                             animationDuration: Duration(seconds: 3),
                             behaviors: [
-                              new charts.ChartTitle("open",
+                              new charts.ChartTitle("Years",
                                   behaviorPosition:
                                       charts.BehaviorPosition.bottom,
                                   titleOutsideJustification: charts
                                       .OutsideJustification.middleDrawArea),
-                              new charts.ChartTitle("close",
+                              new charts.ChartTitle("My portfolio",
                                   behaviorPosition:
                                       charts.BehaviorPosition.start,
                                   titleOutsideJustification: charts
@@ -353,23 +346,23 @@ class _MyChartsState extends State<MyCharts> {
                         mainAxisAlignment: MainAxisAlignment.start,
                         children: <Widget>[
                           myCardDetails("assets/bitcoin.png", "Bitcoin", data1,
-                              "4702", "3.0", "\u2191", 0xff07862b),
+                              "", "3.0", "\u2191", 0xff07862b),
                           myCardDetails("assets/bitshares.png", "Bitshares", data2,
-                              "3802", "4.0", "\u2193", 0xffff0000),
+                              "", "4.0", "\u2193", 0xff07862b),
                           myCardDetails("assets/ethereum.png", "Ethereum", data3,
-                              "7702", "5.0", "\u2191", 0xff07862b),
+                              "", "5.0", "\u2191", 0xff07862b),
                           myCardDetails("assets/counterparty.png", "Counterpaty",
-                              data7, "4702", "3.0", "\u2193", 0xffff0000),
-                          myCardDetails("assets/lykke.png", "Lykke", data5, "8600",
+                              data7, "", "3.0", "\u2193", 0xff07862b),
+                          myCardDetails("assets/lykke.png", "Lykke", data5, "",
                               "2.0", "\u2191", 0xff07862b),
                           myCardDetails("assets/peercoin.png", "Peercoin", data6,
-                              "4702", "2.5", "\u2191", 0xff07862b),
-                          myCardDetails("assets/zcash.png", "Zcash", data4, "2345",
-                              "2.0", "\u2193", 0xffff0000),
+                              "", "2.5", "\u2191", 0xff07862b),
+                          myCardDetails("assets/zcash.png", "Zcash", data4, "",
+                              "2.0", "\u2193", 0xff07862b),
                           myCardDetails("assets/singular.png", "Singular", data8,
-                              "3800", "2.5", "\u2191", 0xffff0000),
+                              "", "2.5", "\u2191", 0xff07862b),
                           myCardDetails("assets/litecoin.png", "Litecoin", data9,
-                              "2000", "3.0", "\u2193", 0xffff0000),
+                              "", "3.0", "\u2193", 0xff07862b),
 //                          Container(
 //                            padding: const EdgeInsets.only(
 //                                left: 8.0, bottom: 8.0),
@@ -432,24 +425,24 @@ class Task {
   Task(this.task, this.taskValue, this.colorVal);
 }
 
-class Macd {
+class EarningsPerYear {
 //  String stockName;
 //  int yAxis;
 //  double price;
-  double open;
+  double years;
 
 //  double high;
 //  double low;
-  double close;
+  double earnings;
 
-  Macd(
+  EarningsPerYear(
     //      this.stockName,
 //      this.yAxis,
 //      this.price,
-    this.open,
+    this.years,
 //      this.high,
 //      this.low,
-    this.close,
+    this.earnings,
   );
 }
 
@@ -547,7 +540,7 @@ Widget myCurrenciesDetails(String currencyVal, String currencyPercentage,
       child: Column(
     children: <Widget>[
       Container(
-        child: Text("\u0024" + currencyVal,
+        child: Text("Own" + currencyVal,
             style: TextStyle(
                 color: Color(0xff3a2483),
                 fontFamily: 'Poppins',
@@ -555,7 +548,7 @@ Widget myCurrenciesDetails(String currencyVal, String currencyPercentage,
                 fontSize: 20.0)),
       ),
       Container(
-        child: Text(currencyPercentage + "\u0025\u0020" + currencyStatus,
+        child: Text(currencyPercentage,
             style: TextStyle(
               color: Color(colorVal),
               fontFamily: 'Poppins',
