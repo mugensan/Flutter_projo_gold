@@ -144,7 +144,7 @@ class _DashboardTile extends StatelessWidget {
 
       child: new InkWell(
         onTap: () {
-          Navigator.of(context).push(MaterialPageRoute(builder: (context)=>MyCharts()));
+          Navigator.of(context).push(MaterialPageRoute(builder: (context)=>PortfolioPage()));
 //          Navigator.of(context).push(MaterialPageRoute(builder: (context)=>AboutMePage()));
           },
 //          Navigator.push(context,"/PortfolioPage");

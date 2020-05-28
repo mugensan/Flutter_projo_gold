@@ -9,6 +9,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:charts_flutter/flutter.dart' as charts;
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:flutter_candlesticks/flutter_candlesticks.dart';
 
 class MyCharts extends StatefulWidget {
   @override
@@ -20,6 +21,24 @@ class _MyChartsState extends State<MyCharts> {
       "https://my.api.mockaroo.com/stocks_data.json?key=cbcf98d0";
 
   List data;
+
+  List sampleDataMACD = [
+    {"open": 50.0, "high": 100.0, "low": 40.0, "close": 80, "volumeto": 5000.0},
+    {"open": 80.0, "high": 90.0, "low": 55.0, "close": 65, "volumeto": 4000.0},
+    {"open": 65.0, "high": 120.0, "low": 60.0, "close": 90, "volumeto": 7000.0},
+    {"open": 90.0, "high": 95.0, "low": 85.0, "close": 80, "volumeto": 2000.0},
+    {"open": 80.0, "high": 85.0, "low": 40.0, "close": 50, "volumeto": 3000.0},
+    {"open": 50.0, "high": 100.0, "low": 40.0, "close": 80, "volumeto": 5000.0},
+    {"open": 80.0, "high": 90.0, "low": 55.0, "close": 65, "volumeto": 4000.0},
+    {"open": 65.0, "high": 120.0, "low": 60.0, "close": 90, "volumeto": 7000.0},
+    {"open": 90.0, "high": 95.0, "low": 85.0, "close": 80, "volumeto": 2000.0},
+    {"open": 80.0, "high": 85.0, "low": 40.0, "close": 50, "volumeto": 3000.0},
+    {"open": 50.0, "high": 100.0, "low": 40.0, "close": 80, "volumeto": 5000.0},
+    {"open": 80.0, "high": 90.0, "low": 55.0, "close": 65, "volumeto": 4000.0},
+    {"open": 65.0, "high": 120.0, "low": 60.0, "close": 90, "volumeto": 7000.0},
+    {"open": 90.0, "high": 95.0, "low": 85.0, "close": 80, "volumeto": 2000.0},
+    {"open": 80.0, "high": 85.0, "low": 40.0, "close": 50, "volumeto": 3000.0},
+  ];
 
   List<double> data1 = [1.0, 2.0, 3.0, 2.0, 1.0, 5.6, 2.0, 3.0, 6.0, 4.0, 1.0];
   List<double> data2 = [0.8, 0.7, 1.0, 0.9, 0.2, 1.3, 1.6, 0.8, 0.3, 0.0];
@@ -56,7 +75,6 @@ class _MyChartsState extends State<MyCharts> {
       new EarningsPerYear(5, 597.79),
     ];
 
-
     _seriesPieData.add(charts.Series(
       data: pieData,
       domainFn: (Task task, _) => task.task,
@@ -74,15 +92,6 @@ class _MyChartsState extends State<MyCharts> {
           domainFn: (EarningsPerYear macd, _) => macd.years,
           measureFn: (EarningsPerYear macd, _) => macd.earnings),
     );
-
-//    _seriesLineData.add(
-//      charts.Series(
-//          colorFn: (__, _) => charts.ColorUtil.fromDartColor(Colors.black12),
-//          id: 'MACD Indicator',
-//          data: macdMac,
-//          domainFn: (Macd macd, _) => macd.open,
-//          measureFn: (Macd macd, _) => macd.close),
-//    );
   }
 
   @override
@@ -144,6 +153,9 @@ class _MyChartsState extends State<MyCharts> {
                 Tab(
                   icon: Icon(FontAwesomeIcons.chartLine),
                 ),
+//                Tab(
+//                  icon: Icon(FontAwesomeIcons.candyCane)
+//                ),
                 Tab(
                   icon: Icon(FontAwesomeIcons.moneyBillWave),
                 ),
@@ -290,6 +302,19 @@ class _MyChartsState extends State<MyCharts> {
                           ),
                         ),
                       ),
+                      
+//                      Container(
+//                        child: Expanded(
+//                          child: new OHLCVGraph(
+//                            data: sampleDataMACD,
+//                            enableGridLines: true,
+//                            volumeProp: 0.2,
+//                            gridLineAmount: 5,
+//                            gridLineColor: Colors.grey[300],
+//                            gridLineLabelColor: Colors.grey,
+//                          ),
+//                        ),
+//                      ),
                     ],
                   ),
                 ),
@@ -305,6 +330,16 @@ class _MyChartsState extends State<MyCharts> {
                           style: TextStyle(
                             fontSize: 24.0,
                             fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                        Expanded(
+                          child: new OHLCVGraph(
+                            data: sampleDataMACD,
+                            enableGridLines: true,
+                            volumeProp: 0.2,
+                            gridLineAmount: 5,
+                            gridLineColor: Colors.grey[300],
+                            gridLineLabelColor: Colors.grey,
                           ),
                         ),
                         Expanded(
@@ -335,34 +370,41 @@ class _MyChartsState extends State<MyCharts> {
                   ),
                 ),
               ),
+//              Container(),
               Container(
-
                 child: Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: ListView(
                     children: <Widget>[
-                     Container(
-                      child: new Column(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        children: <Widget>[
-                          myCardDetails("assets/bitcoin.png", "Bitcoin", data1,
-                              "", "3.0", "\u2191", 0xff07862b),
-                          myCardDetails("assets/bitshares.png", "Bitshares", data2,
-                              "", "4.0", "\u2193", 0xff07862b),
-                          myCardDetails("assets/ethereum.png", "Ethereum", data3,
-                              "", "5.0", "\u2191", 0xff07862b),
-                          myCardDetails("assets/counterparty.png", "Counterpaty",
-                              data7, "", "3.0", "\u2193", 0xff07862b),
-                          myCardDetails("assets/lykke.png", "Lykke", data5, "",
-                              "2.0", "\u2191", 0xff07862b),
-                          myCardDetails("assets/peercoin.png", "Peercoin", data6,
-                              "", "2.5", "\u2191", 0xff07862b),
-                          myCardDetails("assets/zcash.png", "Zcash", data4, "",
-                              "2.0", "\u2193", 0xff07862b),
-                          myCardDetails("assets/singular.png", "Singular", data8,
-                              "", "2.5", "\u2191", 0xff07862b),
-                          myCardDetails("assets/litecoin.png", "Litecoin", data9,
-                              "", "3.0", "\u2193", 0xff07862b),
+                      Container(
+                        child: new Column(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          children: <Widget>[
+                            myCardDetails("assets/bitcoin.png", "Bitcoin",
+                                data1, "", "3.0", "\u2191", 0xff07862b),
+                            myCardDetails("assets/bitshares.png", "Bitshares",
+                                data2, "", "4.0", "\u2193", 0xff07862b),
+                            myCardDetails("assets/ethereum.png", "Ethereum",
+                                data3, "", "5.0", "\u2191", 0xff07862b),
+                            myCardDetails(
+                                "assets/counterparty.png",
+                                "Counterpaty",
+                                data7,
+                                "",
+                                "3.0",
+                                "\u2193",
+                                0xff07862b),
+                            myCardDetails("assets/lykke.png", "Lykke", data5,
+                                "", "2.0", "\u2191", 0xff07862b),
+                            myCardDetails("assets/peercoin.png", "Peercoin",
+                                data6, "", "2.5", "\u2191", 0xff07862b),
+                            myCardDetails("assets/zcash.png", "Zcash", data4,
+                                "", "2.0", "\u2193", 0xff07862b),
+                            myCardDetails("assets/singular.png", "Singular",
+                                data8, "", "2.5", "\u2191", 0xff07862b),
+                            myCardDetails("assets/litecoin.png", "Litecoin",
+                                data9, "", "3.0", "\u2193", 0xff07862b),
+
 //                          Container(
 //                            padding: const EdgeInsets.only(
 //                                left: 8.0, bottom: 8.0),
@@ -377,14 +419,15 @@ class _MyChartsState extends State<MyCharts> {
 //                                "\u2191",
 //                                0xff07862b),
 //                          ),
-                        ],
-                      ),
+                          ],
+                        ),
 //                      );
 //                    }),
 //              ),
 //            ],
-                    ),
-             ], ),
+                      ),
+                    ],
+                  ),
                 ),
               ),
             ],
@@ -407,8 +450,12 @@ class EarningsPerYear {
   double years;
   double earnings;
 
-  EarningsPerYear(this.years,this.earnings,);
+  EarningsPerYear(
+    this.years,
+    this.earnings,
+  );
 }
+
 
 Widget myCardDetails(
     String imageVal,

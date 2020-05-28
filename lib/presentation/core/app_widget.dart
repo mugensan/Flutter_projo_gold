@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutterstaggeredgridontap/pages/AboutMePage.dart';
 import 'package:flutterstaggeredgridontap/pages/CryptoPage.dart';
 import 'package:flutterstaggeredgridontap/pages/DashboardPage.dart';
+import 'package:flutterstaggeredgridontap/pages/DashboardPage2.dart';
 import 'file:///C:/Users/kevro/AndroidStudioProjects/Flutter_projo_gold/lib/pages/portfolio/PortfolioPage.dart';
 import 'package:flutterstaggeredgridontap/pages/ReportPage.dart';
 import 'package:flutterstaggeredgridontap/pages/SettingsPage.dart';

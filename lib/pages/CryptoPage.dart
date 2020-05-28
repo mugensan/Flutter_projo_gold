@@ -55,7 +55,7 @@ class _CryptoPageState extends State<CryptoPage> {
 
     return new Scaffold(
       appBar: new AppBar(
-        title: new Text("Crypto"),
+        title: new Text("Cryptocurrency live list"),
         centerTitle: true,
       ),
       drawer: new Drawer(
