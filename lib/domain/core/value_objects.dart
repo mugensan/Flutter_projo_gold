@@ -33,7 +33,6 @@ abstract class ValueObject<T> {
 }
 
 //creating a unique value object
-
 class UniqueId extends ValueObject<String> {
   @override
   // TODO: implement value
@@ -42,7 +41,7 @@ class UniqueId extends ValueObject<String> {
   factory UniqueId(){
     return UniqueId._(
       //checking if the String passed is unique
-      right(Uuid().v1()),
+      right(Uuid().v1()),//Uuid -> package (creates a unique id)
     );
 }
 

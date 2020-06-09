@@ -37,7 +37,7 @@ class FirebaseAuthFacade implements IAuthFacade {
       );
       return right(unit);
     } on PlatformException catch (e) {
-      if (e.code == 'ERROR_EMAIL_ALREADY_IN_USE') {
+      if (e.code == 'ERROR - Email already in use!') {
         return left(const AuthFailure.emailAlreadyInUse());
       } else {
         return left(const AuthFailure.serverError());
@@ -93,10 +93,10 @@ class FirebaseAuthFacade implements IAuthFacade {
   @override
   Future<Option<User>> getSignedInUser() =>
       _firebaseAuth.currentUser().then((fireBaseUser) =>
+      ///some(User(id: UniqueId.fromUniqueString(fireBaseUser.uid))));
+          optionOf(fireBaseUser?.toDomain()));//? -> can be null
 
-          ///some(User(id: UniqueId.fromUniqueString(fireBaseUser.uid))));
-          optionOf(fireBaseUser?.toDomain()));
-
+  //instead of the await method i'm using wait for the list
   @override
   Future<void> signOut()=>//async
     Future.wait([ //list

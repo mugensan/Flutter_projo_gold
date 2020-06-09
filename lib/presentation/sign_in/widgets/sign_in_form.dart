@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutterstaggeredgridontap/application/auth/sign_in_form/sign_in_form_bloc.dart';
+import 'package:flutterstaggeredgridontap/application/auth/auth/sign_in_form/sign_in_form_bloc.dart';
 
 class SignInForm extends StatelessWidget {
   @override

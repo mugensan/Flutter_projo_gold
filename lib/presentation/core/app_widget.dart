@@ -31,7 +31,7 @@ class AppWidget extends StatelessWidget {
 //home: CryptoPage(),
       initialRoute: '/',
       routes: {
-        '/': (BuildContext context) => new DashboardPage(),
+        '/': (BuildContext context) => new SignInPage(),
         '/DashboardPage': (context) => new DashboardPage(),
         '/PortfolioPage': (BuildContext context) => new MyCharts(),
         '/CryptoPage': (BuildContext context) => new CryptoPage(),
