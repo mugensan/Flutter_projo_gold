@@ -6,6 +6,7 @@ import 'package:flutterstaggeredgridontap/pages/AboutMePage.dart';
 import 'package:flutterstaggeredgridontap/pages/ReportPage.dart';
 import 'package:flutterstaggeredgridontap/pages/myCharts.dart';
 import 'package:flutterstaggeredgridontap/pages/portfolio/PortfolioPage.dart';
+import 'package:flutterstaggeredgridontap/presentation/sign_in/sign_in_page.dart';
 
 class DashboardPage extends StatelessWidget {
   @override
@@ -68,15 +69,17 @@ class DashboardPage extends StatelessWidget {
               },
             ),
             new Divider(),
-            new ListTile(
-              title: new Text("Portfolio"),
-              trailing: new Icon(Icons.arrow_forward),
-              onTap: () {
-                Navigator.of(context).pop();
-                Navigator.of(context).pushReplacementNamed("/PortfolioPage");
-              },
+            RaisedButton(
+              child: new ListTile(
+                title: new Text("Portfolio"),
+                trailing: new Icon(Icons.arrow_forward),
+                onTap: () {
+                  Navigator.of(context).pop();
+                  Navigator.of(context).pushReplacementNamed("/PortfolioPage");
+                },
 
-              ///TODO ADD ROUTE
+                ///TODO ADD ROUTE
+              ),
             ),
             new Divider(),
             new ListTile(
@@ -89,11 +92,11 @@ class DashboardPage extends StatelessWidget {
             ),
             new Divider(),
             new ListTile(
-              title: new Text("Report"),
+              title: new Text("SignIn Or Register"),
               trailing: new Icon(Icons.arrow_forward),
               onTap: () {
                 Navigator.of(context).pop();
-                Navigator.of(context).pushReplacementNamed("/ReportPage");
+                Navigator.of(context).pushReplacementNamed("/SignInPage");
               },
 
               ///TODO ADD ROUTE
@@ -144,7 +147,7 @@ class _DashboardTile extends StatelessWidget {
 
       child: new InkWell(
         onTap: () {
-          Navigator.of(context).push(MaterialPageRoute(builder: (context)=>PortfolioPage()));
+          Navigator.of(context).push(MaterialPageRoute(builder: (context)=>SignInPage()));
 //          Navigator.of(context).push(MaterialPageRoute(builder: (context)=>AboutMePage()));
           },
 //          Navigator.push(context,"/PortfolioPage");
@@ -203,5 +206,5 @@ List<Widget> _tiles = const <Widget>[
   const _DashboardTile(Color(0xffff3266), "Stocks", Icons.insert_chart),
   const _DashboardTile(Color(0xfff4c83f), "Settings", Icons.settings),
   const _DashboardTile(Color(0xff7297ff), "About Me", Icons.book),
-  const _DashboardTile(Color(0xff622F74), "Report", Icons.menu),
+  const _DashboardTile(Color(0xff622F74), "SignIn or Register \n        Premium", Icons.accessibility),
 ];

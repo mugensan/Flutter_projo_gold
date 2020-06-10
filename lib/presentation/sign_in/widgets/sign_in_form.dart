@@ -1,6 +1,8 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutterstaggeredgridontap/application/auth/auth/sign_in_form/sign_in_form_bloc.dart';
+import 'package:progress_indicators/progress_indicators.dart';
 
 class SignInForm extends StatelessWidget {
   @override
@@ -24,13 +26,61 @@ class SignInForm extends StatelessWidget {
           autovalidate: state.showErrorMessages,
           child: ListView(
             children: <Widget>[
-              const Text(
-                'LOGO',
-                textAlign: TextAlign.center,
-                style: TextStyle(
-                  fontSize: 130,
+
+              SizedBox(
+                height: 60.0,
+                child: Center(
+                  child: CollectionScaleTransition(
+                    children: <Widget>[
+                      Icon(Icons.arrow_downward,
+                        size: 30.0,
+                        color: Colors.red,),
+                      Text('SignIn ',
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 20.0
+                      ),),
+                      Text('Or ',
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 20.0
+                      ),),
+                      Text('Register ',
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 20.0
+                      ),),
+                      Text('For ',
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 20.0
+                      ),),
+                      Text('Premium',
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 20.0
+                      ),),
+                      Icon(Icons.arrow_downward,
+                      size: 30.0,
+                      color: Colors.red,),
+//                  Icon(Icons.apps),
+//                  Icon(Icons.announcement),
+                    ],
+                  ),
                 ),
               ),
+//              ScalingText('SignIn '),
+//              SizedBox(height: 32.0),
+//              JumpingDotsProgressIndicator(
+//                fontSize: 120.0,
+//              ),
+//              const Text(
+//                'LOGO',
+//                textAlign: TextAlign.center,
+//                style: TextStyle(
+//                  fontSize: 130,
+//                ),
+//              ),
               const SizedBox(height: 8),
               TextFormField(
                 decoration: const InputDecoration(

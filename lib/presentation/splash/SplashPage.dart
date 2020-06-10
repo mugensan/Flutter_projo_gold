@@ -6,8 +6,7 @@ import 'package:flutterstaggeredgridontap/application/auth/auth/auth_bloc.dart';
 import 'package:flutterstaggeredgridontap/presentation/routes/router.gr.dart';
 import 'package:progress_indicators/progress_indicators.dart';
 
-
-import 'package:progress_indicators/progress_indicators.dart';class SplashPage extends StatelessWidget {
+class SplashPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocListener<AuthBloc, AuthState>(

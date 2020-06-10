@@ -129,11 +129,11 @@ class _CryptoPageState extends State<CryptoPage> {
             ),
             new Divider(),
             new ListTile(
-              title: new Text("Report"),
+              title: new Text("SignIn Or Register"),
               trailing: new Icon(Icons.arrow_forward),
               onTap: () {
                 Navigator.of(context).pop();
-                Navigator.of(context).pushNamed("/ReportPage");
+                Navigator.of(context).pushReplacementNamed("/SignInPage");
               },
 
               ///TODO ADD ROUTE

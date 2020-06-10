@@ -22,41 +22,37 @@ class AppWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MultiBlocProvider(
-      providers: [
-        BlocProvider(
-          create: (context) => getIt<AuthBloc>()
-            ..add(const AuthEvent
-                .authCheckRequested()), //calling the auth method to listen the state emitted by the block
-        ),
-      ],
-      child: MaterialApp(
-        debugShowCheckedModeBanner: false,
-        title: 'Gold Crypto App',
-        theme: ThemeData.light().copyWith(
-            primaryColor: Colors.purple[800],
-            accentColor: Colors.blueAccent,
-            inputDecorationTheme: InputDecorationTheme(
-                border: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(8),
-            ))),
+        providers: [
+          BlocProvider(
+            create: (context) => getIt<AuthBloc>()
+              ..add(const AuthEvent
+                  .authCheckRequested()), //calling the auth method to listen the state emitted by the block
+          ),
+        ],
+        child: MaterialApp(
+            debugShowCheckedModeBanner: false,
+            title: 'Gold Crypto App',
+            theme: ThemeData.light().copyWith(
+                primaryColor: Colors.purple[800],
+                accentColor: Colors.blueAccent,
+                inputDecorationTheme: InputDecorationTheme(
+                    border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(8),
+                ))),
 //home: CryptoPage(),
-        builder: ExtendedNavigator<Router>(router: Router()),
-
-
+//        builder: ExtendedNavigator(router: Router()),
 //      ),
 //    );
-//        initialRoute: '/',
-//        routes: {
-//          '/': (BuildContext context) => new DashboardPage(),
-//          '/DashboardPage': (context) => new DashboardPage(),
-//          '/PortfolioPage': (BuildContext context) => new MyCharts(),
-//          '/CryptoPage': (BuildContext context) => new CryptoPage(),
-//          '/StocksPage': (BuildContext context) => new StocksPage(),
-//          '/SettingsPage': (BuildContext context) => new SettingsPage(),
-//          '/ReportPage': (BuildContext context) => new ReportPage(),
-//          '/AboutMePage': (BuildContext context) => new AboutMePage(),
-//        },
-      ),
-    );
+            initialRoute: '/',
+            routes: {
+              '/': (BuildContext context) => new DashboardPage(),
+              '/DashboardPage': (context) => new DashboardPage(),
+              '/PortfolioPage': (BuildContext context) => new MyCharts(),
+              '/CryptoPage': (BuildContext context) => new CryptoPage(),
+              '/StocksPage': (BuildContext context) => new StocksPage(),
+              '/SettingsPage': (BuildContext context) => new SettingsPage(),
+              '/ReportPage': (BuildContext context) => new SignInPage(),
+              '/AboutMePage': (BuildContext context) => new AboutMePage(),
+            }));
   }
 }

@@ -11,13 +11,10 @@ import 'package:flutterstaggeredgridontap/presentation/splash/SplashPage.dart';
 class $Router{
   @initial
   SplashPage splashPage;
-
-  @CupertinoRoute(fullscreenDialog: true)
   SignInPage signInPage;
-
-//  AboutMePage aboutMePage;
-//  CryptoPage cryptoPage;
-//  DashboardPage dashboardPage;
-//  ReportPage reportPage;
-//  StocksPage stocksPage;
+  AboutMePage aboutMePage;
+  CryptoPage cryptoPage;
+  DashboardPage dashboardPage;
+  ReportPage reportPage;
+  StocksPage stocksPage;
 }
