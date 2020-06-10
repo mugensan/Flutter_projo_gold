@@ -15,6 +15,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 //VALIDATING EMAIL ADDRESS
 class EmailAddress extends ValueObject<String> {
+  @override
   final Either<ValueFailure<String>, String> value;
 
   factory EmailAddress(String input) {
@@ -29,6 +30,7 @@ class EmailAddress extends ValueObject<String> {
 
 //VALIDATING PASSWORD LENGTH >=6 (IF NEED CHAR || OTHER SPEC, DEFINE HERE)
 class Password extends ValueObject<String> {
+  @override
   final Either<ValueFailure<String>, String> value;
 
   factory Password(String input) {

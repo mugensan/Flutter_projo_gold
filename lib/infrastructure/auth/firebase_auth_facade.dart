@@ -12,8 +12,8 @@ import 'package:google_sign_in/google_sign_in.dart';
 import 'package:injectable/injectable.dart';
 import './firebase_user_mapper.dart';
 
-@lazySingleton
-@RegisterAs(IAuthFacade)
+@LazySingleton(as:IAuthFacade) //formerly -> @RegisterAs(IAuthFacade)
+
 class FirebaseAuthFacade implements IAuthFacade {
   final FirebaseAuth _firebaseAuth;
   final GoogleSignIn _googleSignIn;
